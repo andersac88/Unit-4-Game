@@ -1,9 +1,14 @@
 .crystal-image {
-  padding: 20px;
-  height: 50% !important;
-  width: 50% !important;
+  padding: 5px;
+  height: 50%;
+  width: 50%;
 }
 
 .container {
     font-family: 'MedievalSharp', cursive;
+   color: white !important; 
+}
+
+html body {
+    background-color: black;
 }
