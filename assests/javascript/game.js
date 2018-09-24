@@ -4,13 +4,10 @@ $(document).ready(function () {
     var losses = 0;
     var targetNumber = Math.floor(Math.random() * (121 - 19) + 19);
     console.log(targetNumber)
-
-
-    $("#number-to-guess").text(targetNumber);
-
     var counter = 0;
 
-    // Now for the hard part. Creating multiple crystals each with their own unique number value.
+ 
+    $("#number-to-guess").text(targetNumber);
 
     // We begin by expanding our array to include four options.
     var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -53,19 +50,30 @@ $(document).ready(function () {
 
         // All of the same game win-lose logic applies. So the rest remains unchanged.
 
-        $("#current-total").text(counter);
+    
 
         if (counter === targetNumber) {
             alert("You win!");
             wins++;
+            counter = 0;
+        
+      
         }
 
         else if (counter >= targetNumber) {
             alert("You lose!!");
             losses++;
+            counter = 0;
+            targetNumber = Math.floor(Math.random() * (121 - 19) + 19);
+            $("#number-to-guess").text(targetNumber);
         }
 
         $("#wins-total").text(wins);
         $("#loss-total").text(losses);
+        $("#current-total").text(counter);
+        
+        
     })
 });
+
+// $("#div1").remove();
