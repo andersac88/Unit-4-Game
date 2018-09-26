@@ -13,6 +13,7 @@ $(document).ready(function () {
     var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     var imageOptions = ["assests/images/Island.png", "assests/images/Forest.png", "assests/images/Mountain.png", "assests/images/Swamp.png", "assests/images/Plains.png"];
 
+    function play(){
     // Next we create a for loop to create crystals for every numberOption.
     for (var i = 0; i < 5; i++) {
 
@@ -33,7 +34,8 @@ $(document).ready(function () {
         // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
         $(".crystals").append(imageCrystal);
     }
-
+}
+    function crystalClick() {
     // This time, our click event applies to every single crystal on the page. Not just one.
     $(".crystal-image").on("click", function () {
 
@@ -50,12 +52,16 @@ $(document).ready(function () {
 
         // All of the same game win-lose logic applies. So the rest remains unchanged.
 
-    
 
         if (counter === targetNumber) {
             alert("You win!");
             wins++;
             counter = 0;
+            targetNumber = Math.floor(Math.random() * (121 - 19) + 19);
+            $("#number-to-guess").text(targetNumber);
+            $(".crystal-image").remove();
+            play();
+            crystalClick();
         
       
         }
@@ -66,6 +72,10 @@ $(document).ready(function () {
             counter = 0;
             targetNumber = Math.floor(Math.random() * (121 - 19) + 19);
             $("#number-to-guess").text(targetNumber);
+            $(".crystal-image").remove();
+            play();
+            crystalClick();
+
         }
 
         $("#wins-total").text(wins);
@@ -74,6 +84,12 @@ $(document).ready(function () {
         
         
     })
-});
+}
+
+play();
+crystalClick()
+;});
+
+
 
 // $("#div1").remove();
